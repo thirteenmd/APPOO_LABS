@@ -8,9 +8,11 @@ public class Board {
     public Board(int seize) {
         this.seize = seize;
         board = new char[seize][seize];
+        secondBoard = new int[seize][seize];
         for (int i = 0; i < seize; i++){
             for (int j = 0; j < seize; j++){
                 board[i][j] = '-'; //the board is empty
+                secondBoard[i][j] = 0; //initialize the second board
             }
         }
     }
@@ -22,12 +24,18 @@ public class Board {
     //prints the board to the console
     public void printBoard(){
         for (int i = 0; i < seize; i++){
-            System.out.println();
             for (int j = 0; j < seize; j++){
-                if (j == 0)
-                    System.out.println("| ");
-                System.out.println(board[i][j] + " | ");
+                System.out.print(board[i][j] + "  ");
             }
+            System.out.println();
+        }
+
+        System.out.println();System.out.println();
+        for (int i = 0; i < seize; i++){
+            for (int j = 0; j < seize; j++){
+                System.out.print(secondBoard[i][j] + "  ");
+            }
+            System.out.println();
         }
     }
 
@@ -39,7 +47,7 @@ public class Board {
         return getCell(x, y) != 0;
     }
 
-    public  void moove(char mark, int x, int y){
+    public  void move(char mark, int x, int y){
         board[x][y] = mark;
         secondBoard[x][y] = 1;
     }
