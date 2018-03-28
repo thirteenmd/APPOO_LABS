@@ -20,10 +20,6 @@ public abstract class Piece implements Cloneable {
         this.color = color;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -34,14 +30,6 @@ public abstract class Piece implements Cloneable {
 
     public void setPath(String path) {
         this.path = path;
-    }
-
-    public ArrayList<Cell> getPossiblemoves() {
-        return possiblemoves;
-    }
-
-    public void setPossiblemoves(ArrayList<Cell> possiblemoves) {
-        this.possiblemoves = possiblemoves;
     }
 
     public Piece getcopy() throws CloneNotSupportedException {

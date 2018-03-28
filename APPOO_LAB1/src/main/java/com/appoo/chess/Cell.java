@@ -50,7 +50,7 @@ public class Cell extends JPanel implements Cloneable {
     public void setPiece(Piece p)    //Function to inflate a cell with a piece
     {
         piece = p;
-        ImageIcon img = new javax.swing.ImageIcon(this.getClass().getResource(p.getPath()));
+        ImageIcon img = new ImageIcon(this.getClass().getResource(p.getPath()));
         content = new JLabel(img);
         this.add(content);
     }

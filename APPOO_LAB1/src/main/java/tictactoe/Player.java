@@ -1,22 +1,21 @@
 package tictactoe;
 
-public class Player {
+
+import java.util.Scanner;
+
+class Player {
     private String name;
     private char mark;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    private Player(String name, char mark) {
         this.name = name;
-    }
-
-    public char getMark() {
-        return mark;
-    }
-
-    public void setMark(char mark) {
         this.mark = mark;
+    }
+
+    static Player initialize(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Give player's name: ");
+        return new Player(scanner.nextLine(), 'X');
     }
 }
