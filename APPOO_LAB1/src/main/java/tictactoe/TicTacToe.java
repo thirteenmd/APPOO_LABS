@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class TicTacToe extends Game {
     private Scanner scanner = new Scanner(System.in);
     private Board board;
+    char currentMark = 'X';
 
     TicTacToe(int size) {
         initGame(size);

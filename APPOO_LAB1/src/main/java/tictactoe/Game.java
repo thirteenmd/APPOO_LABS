@@ -5,8 +5,7 @@ import static tictactoe.Player.initialize;
 abstract class Game {
     private Player playerOne;
     private Player playerTwo;
-    Board board;
-    char currentMark = 'X';
+
 
     void initPlayers() {
         playerOne = initialize();

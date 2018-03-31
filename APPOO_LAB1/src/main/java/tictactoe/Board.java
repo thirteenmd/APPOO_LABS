@@ -3,26 +3,28 @@ package tictactoe;
 public class Board {
     private int seize;
     private char[][] board;
-    private int[][] secondBoard; //for memorising the moves
+    private int[][] secondBoard;
 
+    //CONSTRUCTOR
     Board(int seize) {
         this.seize = seize;
         board = new char[seize][seize];
         secondBoard = new int[seize][seize];
         for (int i = 0; i < seize; i++) {
             for (int j = 0; j < seize; j++) {
-                board[i][j] = '-'; //the board is empty
-                secondBoard[i][j] = 0; //initialize the second board
+                board[i][j] = '-';
+                secondBoard[i][j] = 0;
             }
         }
     }
 
-    public int getSeize() {
+    //GETTER
+    int getSeize() {
         return seize;
     }
 
-    //prints the board to the console
-    public void printBoard() {
+    //PRINTS THE BOARD
+    void printBoard() {
         for (int i = 0; i < seize; i++) {
             for (int j = 0; j < seize; j++) {
                 System.out.print(board[i][j] + "  ");
@@ -32,29 +34,29 @@ public class Board {
 
         System.out.println();
         System.out.println();
-        for (int i = 0; i < seize; i++) {
-            for (int j = 0; j < seize; j++) {
-                System.out.print(secondBoard[i][j] + "  ");
-            }
-            System.out.println();
-        }
     }
 
+    //GETTER
     private int getCell(int x, int y) {
         return secondBoard[x][y];
     }
 
-    public boolean isCellFull(int x, int y) {
+    //VERIFIES IF THE CELL IS FULL
+    boolean isCellFull(int x, int y) {
         return getCell(x, y) != 0;
     }
 
+    //RECORDS THE MOVE
     public void move(char mark, int x, int y) {
         board[x][y] = mark;
         secondBoard[x][y] = 1;
     }
 
-    public char getMark(int x, int y) {
+    //RETURNS THE MARK
+    char getMark(int x, int y) {
         return board[x][y];
     }
+
+    //SHOULD MAKE ANOTHER CLASS CELL
 
 }
