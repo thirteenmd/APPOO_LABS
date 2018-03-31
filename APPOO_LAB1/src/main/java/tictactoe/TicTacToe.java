@@ -2,10 +2,10 @@ package tictactoe;
 
 import java.util.Scanner;
 
-public class TicTacToe extends Game {
+public class TicTacToe implements Game {
     private Scanner scanner = new Scanner(System.in);
     private Board board;
-    char currentMark = 'X';
+    private char currentMark = 'X';
 
     TicTacToe(int size) {
         initGame(size);
@@ -13,7 +13,6 @@ public class TicTacToe extends Game {
 
     public void initGame(int size) {
         board = new Board(size);
-        initPlayers();
         System.out.println("Welcome to TIC TAC TOE!");
         System.out.println("To start the game, press enter.");
         scanner.nextLine();
@@ -31,7 +30,7 @@ public class TicTacToe extends Game {
                 x = scanner.nextInt();
                 y = scanner.nextInt();
             }
-            board.move(currentMark, x, y);
+            board.recordMove(currentMark, x, y);
             if (currentMark == 'X') {
                 currentMark = 'O';
             } else {

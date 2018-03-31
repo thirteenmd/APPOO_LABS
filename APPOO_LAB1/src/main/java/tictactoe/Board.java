@@ -1,6 +1,6 @@
 package tictactoe;
 
-public class Board {
+class Board {
     private int seize;
     private char[][] board;
     private int[][] secondBoard;
@@ -31,8 +31,6 @@ public class Board {
             }
             System.out.println();
         }
-
-        System.out.println();
         System.out.println();
     }
 
@@ -47,7 +45,7 @@ public class Board {
     }
 
     //RECORDS THE MOVE
-    public void move(char mark, int x, int y) {
+    public void recordMove(char mark, int x, int y) {
         board[x][y] = mark;
         secondBoard[x][y] = 1;
     }
