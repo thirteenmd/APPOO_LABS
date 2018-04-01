@@ -9,4 +9,6 @@ interface Game {
 
     boolean gameIsFinished(Board board);
 
+    boolean areCoordinatesValid(int x, int y);
+
 }

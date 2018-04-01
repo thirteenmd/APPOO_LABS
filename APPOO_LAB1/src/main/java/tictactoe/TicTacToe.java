@@ -45,7 +45,7 @@ public class TicTacToe implements Game {
         }
     }
 
-    private boolean areCoordinatesValid(int x, int y) {
+    public boolean areCoordinatesValid(int x, int y) {
         if (x > board.getSeize() || x < 0 || y > board.getSeize() || y < 0) {
             return false;
         }
