@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class TicTacToe implements Game {
     private Scanner scanner = new Scanner(System.in);
-    private Board board;
+    private TTTBoard board;
+    private BoardPrinter boardPrinter;
     private char currentMark = 'X';
 
     TicTacToe(int size) {
@@ -12,14 +13,15 @@ public class TicTacToe implements Game {
     }
 
     public void initGame(int size) {
-        board = new Board(size);
+        board = new TTTBoard(size);
+        boardPrinter = new BoardPrinter(board);
         System.out.println("Welcome to TIC TAC TOE!");
         System.out.println("To start the game, press enter.");
         scanner.nextLine();
     }
 
     public void startGame() {
-        board.printBoard();
+        boardPrinter.printBoard();
         int x, y;
         do {
             System.out.println("Give coordinates for mark: ");
@@ -36,7 +38,7 @@ public class TicTacToe implements Game {
             } else {
                 currentMark = 'X';
             }
-            board.printBoard();
+            boardPrinter.printBoard();
             System.out.println();
         } while (!gameIsFinished(board));
         if (gameIsFinished(board)){
@@ -46,7 +48,7 @@ public class TicTacToe implements Game {
     }
 
     public boolean areCoordinatesValid(int x, int y) {
-        if (x > board.getSeize() || x < 0 || y > board.getSeize() || y < 0) {
+        if (x > board.getSize() || x < 0 || y > board.getSize() || y < 0) {
             return false;
         }
         if (board.isCellFull(x, y)) {
@@ -55,7 +57,7 @@ public class TicTacToe implements Game {
         return true;
     }
 
-    public boolean gameIsFinished(Board board) {
+    public boolean gameIsFinished(TTTBoard board) {
         if ((board.getMark(0, 0) == board.getMark(1, 0)) && (board.getMark(0, 0) == board.getMark(2, 0)) && board.getMark(0, 0) != '-')
             return true;
 

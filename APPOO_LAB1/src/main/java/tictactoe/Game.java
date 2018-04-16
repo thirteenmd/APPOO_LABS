@@ -7,7 +7,7 @@ interface Game {
 
     void startGame();
 
-    boolean gameIsFinished(Board board);
+    boolean gameIsFinished(TTTBoard board);
 
     boolean areCoordinatesValid(int x, int y);
 
